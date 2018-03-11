@@ -2,7 +2,7 @@
 .main-container
   section.cover.imagebg.text-center.height-80[data-overlay="4"]
   .background-image-holder
-    img[alt="background" src="img/twenty20_c8c63429-bf4d-49fc-9f9c-aea879436950.jpg"]
+    = image_tag 'twenty20_c8c63429-bf4d-49fc-9f9c-aea879436950.jpg', alt: 'cover background'
   .container.pos-vertical-center
     .row
       .col-sm-8
@@ -38,7 +38,8 @@
               .masonry__item.col-sm-4.filter-audio[data-masonry-filter="Audio"]
                 .product
                   a[href="#"]
-                    img[alt="Image" src="img/product-small-10.png"]
+                    / img[alt="Image" src="img/product-small-10.png"]
+                    = image_tag 'leaves-sock', alt: 'leaves sock'
                   a.block[href="#"]
 
                   div
