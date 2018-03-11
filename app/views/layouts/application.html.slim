@@ -1,0 +1,20 @@
+doctype html
+html lang="en"
+  head
+    title
+      | The Sock Shop
+    meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, shrink-to-fit=no, minimal-ui"
+
+    = yield :meta
+
+    = csrf_meta_tags
+
+    = javascript_include_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    link href="https://fonts.googleapis.com/css?family=Open+Sans:200,300,400,400i,500,600,700"
+
+  body[data-smooth-scroll-offset='77']
+    = render 'shared/nav'
+    = yield
+    = render 'shared/footer'
+    = render 'shared/scripts'

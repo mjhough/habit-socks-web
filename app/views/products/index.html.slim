@@ -1,0 +1,51 @@
+= javascript_include_tag 'index'
+.main-container
+  section.cover.imagebg.text-center.height-80[data-overlay="4"]
+  .background-image-holder
+    img[alt="background" src="img/twenty20_c8c63429-bf4d-49fc-9f9c-aea879436950.jpg"]
+  .container.pos-vertical-center
+    .row
+      .col-sm-8
+        h1
+          b
+            |  Help give all children a great education
+        p.lead
+          |  Habit Socks provides scholarships and school supplies to help reduce the barriers to learning Science, Technology, Engineering and Mathematics.
+        .modal-instance.block
+          .video-play-icon.video-play-icon--sm.modal-trigger
+          span
+            b
+              | See how you can help make a difference
+          .modal-container
+            .modal-content.bg-dark[data-width="60%" data-height="60%"]
+              iframe[data-src="https://www.youtube.com/embed/6p45ooZOOPo?autoplay=1" allowfullscreen="allowfullscreen"]
+  section
+    .container
+      .row
+        .masonry
+          .masonry-filter-container.text-center
+            span
+              | Category:
+            .masonry-filter-holder
+              .masonry__filters[data-filter-all-text="All Categories"]
+                ul
+                  li.active[data-masonry-filter="*"]
+                    | All Categories
+                    li[data-masonry-filter="audio"]
+                      | Audio
+            .masonry__container.masonry--active
+              .masonry__item.col-sm-4
+              .masonry__item.col-sm-4.filter-audio[data-masonry-filter="Audio"]
+                .product
+                  a[href="#"]
+                    img[alt="Image" src="img/product-small-10.png"]
+                  a.block[href="#"]
+
+                  div
+                    h5
+                      | DALI Xensor 2
+                    span
+                      |  Desktop Speaker
+                  div
+                    span.h4.inline-block
+                      | $269

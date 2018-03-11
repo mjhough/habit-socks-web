@@ -1,0 +1,32 @@
+= javascript_include_tag 'show'
+.main-container
+  section.space--lg
+    .container#sock-container data-sock-id="#{@product_id}"
+      .row
+        .col-sm-7.col-md-6
+          ul
+            li
+              .show-product-image#image
+                / = image_tag 'pineapple-sock.png', id: 'image', alt: 'sock'
+        .col-sm-5.col-md-4.col-md-offset-1
+          h2#sock-name
+          span.h4.inline-block#price
+          p#description
+          ul
+            li
+              .accordion__title
+                span.h5
+                  | Shipping Info
+              .accordion__content
+                p#shipping-info
+          .col-sm-6.col-md-8
+            = button_to 'Add to Cart', '#', class: 'btn btn--primary'
+
+          .col-sm-6.col-md-8
+            span.h4.clear-by-20
+              | Reviews
+            = form_tag '#', id: 'review-form'
+              = text_area_tag 'content'
+              input type='submit' name='Submit Review' value='Submit Review' class='btn btn--primary'
+            .text-left
+              ul#reviews.word-list
