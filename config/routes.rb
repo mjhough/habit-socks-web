@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   get '/api/products', to: 'products#all'
   get '/api/products/:id', to: 'products#get'
   post '/api/products/:id/reviews', to: 'reviews#create'
+
+  get '/checkout', to: 'checkout#index'
 end

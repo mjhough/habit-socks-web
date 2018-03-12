@@ -8,15 +8,18 @@ end
 gem 'bootstrap-sass'
 gem 'coffee-rails', '~> 4.2'
 gem 'fast_jsonapi'
+gem 'font-awesome-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.4'
+gem 'react-rails'
 gem 'sqlite3'
 gem 'sass-rails', '~> 5.0'
 gem 'slim-rails'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
+gem 'webpacker'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
