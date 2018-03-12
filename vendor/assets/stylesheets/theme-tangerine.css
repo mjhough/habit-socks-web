@@ -3474,8 +3474,8 @@ footer.space--md {
 }
 section.space--lg,
 footer.space--lg {
-  padding-top: 14.85714286em;
-  padding-bottom: 14.85714286em;
+  padding-top: 6em;
+  padding-bottom: 3em;
 }
 section.space--xlg,
 footer.space--xlg {
@@ -4746,7 +4746,8 @@ section.parallax .row .background-image-holder {
   font-family: 'Open Sans', 'Roboto', 'Helvetica', Sans-Serif;
 }
 .bar .logo {
-  max-height: 1.85714286em;
+  /* max-height: 1.85714286em; */
+  max-height: 2em;
   max-width: none;
 }
 .menu-horizontal > li > a,
