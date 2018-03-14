@@ -16,12 +16,9 @@ class CartDropdown extends React.Component {
       topic: 'item.add',
       callback: this.handleStorageChange.bind(this)
     });
-    console.log('Subscribing as, ', subscription);
   }
 
   handleStorageChange(data, env) {
-    console.log('Data', data);
-    console.log('Env', env);
     this.setState({
       quantity: data.quantity
     });

@@ -10,12 +10,11 @@ class AddToCart extends React.Component {
       channel: 'carts',
       topic: 'item.add',
       data: {
-        quantity: newCart
+        quantity: newCart || 1
       }
     });
 
     cart ? localStorage.setItem('cart', newCart) : localStorage.setItem('cart', 1);
-    console.log(`There are currently ${localStorage.getItem('cart')} items in the cart`);
   }
 
   render () {
