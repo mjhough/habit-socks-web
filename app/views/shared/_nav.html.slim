@@ -1,10 +1,10 @@
-.nav-container
+.nav-container.fixed--nav
   .via-1520771585714[via="via-1520771585714" vio="habit-nav"]
     .bar.bar--sm.visible-xs
       .container
         .row
           .col-xs-3.col-sm-2
-            a[href="index.html"]
+            a[href=root_path]
               = image_tag  'logo-dark', alt: 'logo', class: 'logo logo-dark'
               = image_tag  'logo-light', alt: 'logo', class: 'logo logo-light'
           .col-xs-9.col-sm-10.text-right
@@ -15,21 +15,22 @@
         .row
           .col-md-2.text-center.text-left-sm.hidden-xs.col-md-push-5
             .bar__module
-              a[href="index.html"]
+              a[href=root_path]
                 = image_tag  'logo-horizontal', alt: 'logo', class: 'logo logo-dark'
               = image_tag  'logo-light', alt: 'logo', class: 'logo logo-light'
           .col-md-5.col-md-pull-2
             .bar__module
               ul.menu-horizontal.text-left
                 li
-                  a[href="#"]
+                  a[href=root_path]
                     |  Home
                 li
-                  a[href="#"]
+                  a[href=root_path]
                     |  About
                 li
-                  a[href="#"]
+                  a[href=root_path]
                     |  Donate
           .col-md-5.text-right.text-left-xs.text-left-sm
             .bar__module
               #mini_cart_render
+                = javascript_pack_tag 'main_render'

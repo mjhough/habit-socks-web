@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 20180204210929) do
   create_table "products", force: :cascade do |t|
     t.string "image_url"
     t.string "name"
-    t.string "supplier_name"
     t.string "description"
     t.string "shipping_info"
     t.integer "inventory", default: 0

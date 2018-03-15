@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   post '/api/products/:id/reviews', to: 'reviews#create'
 
   get '/checkout', to: 'checkout#index'
+  get '/cart', to: 'carts#index'
 end

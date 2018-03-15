@@ -20,7 +20,8 @@ class CartDropdown extends React.Component {
 
   handleStorageChange(data, env) {
     this.setState({
-      quantity: data.quantity
+      quantity: data.quantity,
+      productId: data.productId
     });
   }
 
@@ -31,7 +32,7 @@ class CartDropdown extends React.Component {
 
   render () {
     return (
-      <div className='cart--nav' onClick={this.handleClick.bind(this)}>
+      <div className='cart--nav' onClick={this.handleClick}>
         <i className='fa fa-shopping-bag cart--nav--icon'></i>
         <span className='cart--number'>{this.state.quantity}</span>
       </div>
@@ -41,3 +42,6 @@ class CartDropdown extends React.Component {
 
 
 export default CartDropdown;
+
+
+
