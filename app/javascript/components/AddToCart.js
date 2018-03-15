@@ -10,7 +10,6 @@ class AddToCart extends React.Component {
       topic: 'item.add',
       data: {
         quantity: newCart || 1,
-        productId: 1
       }
     });
 
