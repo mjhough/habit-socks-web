@@ -31,7 +31,7 @@ class CartDropdown extends React.Component {
 
   render () {
     return (
-      <div className='cart--nav'>
+      <div className='cart--nav' onClick={this.handleClick}>
         <i className='fa fa-shopping-bag cart--nav--icon'></i>
         <span className='cart--number'>{this.state.quantity}</span>
       </div>
