@@ -287,3 +287,22 @@
     -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
   }
 }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  min-height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-container, footer {
+  flex: none;
+}
+
+.main-container {
+  flex: auto;
+}

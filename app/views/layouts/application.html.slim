@@ -15,6 +15,7 @@ html lang="en"
 
   body[data-smooth-scroll-offset='77']
     = render 'shared/nav'
-    = yield
+    .main-container
+      = yield
     = render 'shared/footer'
     = render 'shared/scripts'
