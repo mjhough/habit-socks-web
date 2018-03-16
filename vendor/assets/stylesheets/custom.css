@@ -310,3 +310,12 @@ body {
 .no--items {
   padding: 15%;
 }
+
+.checkout--button {
+  float: right;
+}
+
+.checkout--container {
+  padding-top: 3%;
+  padding-right: 1%;
+}

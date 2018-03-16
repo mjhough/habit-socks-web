@@ -107,6 +107,11 @@ export default class ViewCart extends React.Component {
             <label>Grand Total</label>
             <div className="totals-value" id="cart-total">{total}</div>
           </div>
+          <div className="totals-item totals-item-total checkout--container">
+            <a className='btn btn--primary type-uppercase checkout--button' href='/checkout'>
+              <span className='btn__text'>Checkout</span>
+            </a>
+          </div>
         </div>
       </div>
     );
