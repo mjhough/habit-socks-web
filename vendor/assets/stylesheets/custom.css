@@ -306,3 +306,7 @@ body {
 .main-container {
   flex: auto;
 }
+
+.no--items {
+  padding: 15%;
+}

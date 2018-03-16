@@ -1,40 +1,68 @@
 import React from 'react';
+import postal from 'postal';
 
 export default class ViewCart extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-
-    };
+    this.state = {quantity: localStorage.getItem('cart')};
   }
 
   componentWillMount() {
-    setTimeout(() => {
-      fetch('/api/products')
-        .then(response => {
-          response.json().then(data => {
-            const sockInfo = data['data'][0]['attributes'];
-            this.setState({
-              sockInfo: {
-                name: sockInfo.name,
-                imageURL: sockInfo.image_url,
-                price: sockInfo.price.toFixed(2),
-                description: sockInfo.description,
-                shippingInfo: sockInfo.shipping_info,
-                quantity: localStorage.getItem('cart')
-              }
-            })
-          });
+    fetch('/api/products')
+      .then(response => {
+        response.json().then(data => {
+          const sockInfo = data['data'][0]['attributes'];
+          this.setState({
+            sockInfo: {
+              name: sockInfo.name,
+              imageURL: sockInfo.image_url,
+              price: sockInfo.price.toFixed(2),
+              description: sockInfo.description,
+              shippingInfo: sockInfo.shipping_info
+            }
+          })
         });
-    }, 3000);
+      });
+  }
+
+  removeItem() {
+    localStorage.removeItem('cart');
+    this.setState({quantity: 0});
+    postal.publish({
+      channel: 'carts',
+      topic: 'item.add',
+      data: {
+        quantity: 0
+      }
+    });
+  }
+
+  changeQuantity(ev) {
+    const newQuantity = parseInt(ev.target.value);
+    if (newQuantity < 1 || newQuantity > 99 || !newQuantity) return;
+    localStorage.setItem('cart', newQuantity);
+    this.setState({quantity: newQuantity});
+    postal.publish({
+      channel: 'carts',
+      topic: 'item.add',
+      data: {
+        quantity: newQuantity
+      }
+    });
   }
 
   render() {
-    const { sockInfo } = this.state;
-    if (!sockInfo) return (
-      <div className='spinner'></div>
+    const { quantity, sockInfo } = this.state;
+
+    if (!sockInfo) return <div className='spinner'></div>;
+    
+    if (quantity < 1) return (
+      <div className='row no--items'>
+        <h2 className='text-center'>There are no items in your cart</h2>
+      </div>
     )
-    const total = (sockInfo.price * sockInfo.quantity).toFixed(2);
+
+    const total = (sockInfo.price * quantity).toFixed(2);
     return (
       <div className="view--cart">
         <div className="column-labels">
@@ -56,12 +84,12 @@ export default class ViewCart extends React.Component {
           </div>
           <div className="product-price">{sockInfo.price}</div>
           <div className="product-quantity">
-            <input type='number' value={sockInfo.quantity} min="1" />
+            <input type='number' value={quantity} onChange={this.changeQuantity.bind(this)} min="1" />
           </div>
           <div className="product-removal">
-            <button className="remove-product">
-              Remove
-            </button>
+            <a className='btn btn--primary type-uppercase' onClick={this.removeItem.bind(this)}>
+              <span className='btn__text'>Remove</span>
+            </a>
           </div>
           <div className="product-line-price">{total}</div>
         </div>
