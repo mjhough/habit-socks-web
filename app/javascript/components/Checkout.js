@@ -31,7 +31,7 @@ const onToken = (amount, description) => token =>
 const Checkout = ({ name, description, amount }) =>
   <StripeCheckout 
     className='btn btn--primary type-uppercase checkout--button'
-    buttonTextClassName='btn--text'
+    buttonTextClassName='btn__text'
     name={name}
     description={description}
     amount={amount}

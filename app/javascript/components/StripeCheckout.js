@@ -379,7 +379,7 @@ export default class ReactStripeCheckout extends React.Component {
 
   renderDefaultStripeButton() {
     return (
-      <button
+      <a
         {...{
           [this.props.triggerEvent]: this.onClick,
         }}
@@ -393,7 +393,7 @@ export default class ReactStripeCheckout extends React.Component {
         <span className={this.props.buttonTextClassName}>
           {this.props.label}
         </span>
-      </button>
+      </a>
     );
   }
 
