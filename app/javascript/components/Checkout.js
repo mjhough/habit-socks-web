@@ -15,7 +15,10 @@ const successPayment = data => {
   postal.publish({
     channel: 'checkout',
     topic: 'checkout.success',
-    data: { checkout: 'success' }
+    data: {
+      checkout: 'success',
+      data: JSON.stringify(data)
+    }
   });
 };
 
