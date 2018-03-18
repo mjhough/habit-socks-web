@@ -41,6 +41,8 @@ const Checkout = ({ name, description, amount }) =>
     stripeKey={STRIPE_PUBLISHABLE}
     allowRememberMe={false}
     label='Checkout'
+    shippingAddress={true}
+    billingAddress={true}
   />
 
 export default Checkout;
