@@ -50,5 +50,5 @@ yarn-error.log*
 .yarn-integrity
 
 # Ignore javascript constant files
-/backend/constants
-/app/javascript/constants
+app/javascript/constants/stripe.js
+backend/constants/stripe.js
