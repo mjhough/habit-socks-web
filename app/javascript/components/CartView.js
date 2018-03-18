@@ -1,5 +1,6 @@
 import React from 'react';
 import postal from 'postal';
+import Checkout from './Checkout';
 
 export default class ViewCart extends React.Component {
   constructor(props) {
@@ -108,9 +109,7 @@ export default class ViewCart extends React.Component {
             <div className="totals-value" id="cart-total">{total}</div>
           </div>
           <div className="totals-item totals-item-total checkout--container">
-            <a className='btn btn--primary type-uppercase checkout--button' href='/checkout'>
-              <span className='btn__text'>Checkout</span>
-            </a>
+            <Checkout name='Habit Socks' description='A sock charity' amount={16.50} />
           </div>
         </div>
       </div>

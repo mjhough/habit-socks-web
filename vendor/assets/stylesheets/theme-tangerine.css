@@ -1979,7 +1979,7 @@ section.slider .slides {
 @media all and (max-width: 767px) {
   section.slider[class*='height-'] .slides .flickity-slider > li {
     height: auto;
-    padding: 7.42857143em 0;
+    padding: 5em 0;
   }
   section.slider.space--lg .slides .flickity-slider > li {
     padding: 11.14285714em 0;
@@ -2935,7 +2935,7 @@ a {
 }
 .imageblock > .container,
 .imageblock > div[class*='col-']:not(.imageblock__content) {
-  padding-top: 7.42857143em;
+  padding-top: 5em;
   padding-bottom: 7.42857143em;
   float: none;
   overflow: hidden;
@@ -3449,7 +3449,7 @@ section.text-right > .container:last-child > .row:only-child > div[class*='col-'
 /**! 37. Spacing **/
 section,
 footer {
-  padding-top: 7.42857143em;
+  padding-top: 5em;
   padding-bottom: 7.42857143em;
 }
 section.space--xxs,
