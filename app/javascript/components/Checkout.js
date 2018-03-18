@@ -10,7 +10,8 @@ const CURRENCY = 'AUD';
 const fromAUDToCent = amount => amount * 100;
 
 const successPayment = data => {
-  alert('Payment Successful');
+  window.location.href = '/';
+  localStorage.removeItem('cart');
 };
 
 const errorPayment = data => {
@@ -34,7 +35,7 @@ const Checkout = ({ name, description, amount }) =>
     buttonTextClassName='btn__text'
     name={name}
     description={description}
-    amount={amount}
+    amount={fromAUDToCent(amount)}
     token={onToken(amount, description)}
     currency={CURRENCY}
     stripeKey={STRIPE_PUBLISHABLE}
