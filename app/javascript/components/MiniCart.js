@@ -11,7 +11,7 @@ class CartDropdown extends React.Component {
   }
 
   componentDidMount() {
-    let subscription = postal.subscribe({
+    postal.subscribe({
       channel: 'carts',
       topic: 'item.add',
       callback: this.handleStorageChange.bind(this)

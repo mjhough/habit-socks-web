@@ -1,4 +1,5 @@
 import React from 'react';
+import postal from 'postal';
 import axios from 'axios';
 import StripeCheckout from './StripeCheckout';
 
@@ -10,8 +11,12 @@ const CURRENCY = 'AUD';
 const fromAUDToCent = amount => amount * 100;
 
 const successPayment = data => {
-  window.location.href = '/';
   localStorage.removeItem('cart');
+  postal.publish({
+    channel: 'checkout',
+    topic: 'checkout.success',
+    data: { checkout: 'success' }
+  });
 };
 
 const errorPayment = data => {
