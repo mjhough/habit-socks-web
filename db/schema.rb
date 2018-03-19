@@ -21,10 +21,4 @@ ActiveRecord::Schema.define(version: 20180315214000) do
     t.float "price"
   end
 
-  create_table "reviews", force: :cascade do |t|
-    t.string "content"
-    t.integer "product_id"
-    t.index ["product_id"], name: "index_reviews_on_product_id"
-  end
-
 end
