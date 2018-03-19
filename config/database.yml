@@ -1,21 +1,16 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  username: <%= ENV.fetch('PG_USERNAME') { 'postgres' } %>
-  password:
-  pool: <%= ENV.fetch('RAILS_MAX_THREADS') { 5 } %>
-  host: <%= ENV.fetch('PG_HOSTNAME') { 'localhost' } %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
-  database: db/habit_socks_development
+  database: habit_socks_development
 
 test:
   <<: *default
-  database: db/habit_socks_test
+  database: habit_socks_test
 
 production:
   <<: *default
-  database: <%= ENV['PG_NAME'] %>
-  password: <%= ENV['PG_PASSWORD'] %>
-  port: <%= ENV['PG_PORT'] %>
+    url: <%= ENV['DATABASE_URL'] %>
