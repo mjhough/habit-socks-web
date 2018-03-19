@@ -15,8 +15,6 @@ class CheckoutSuccess extends React.Component {
                         <br /><br />
                         You will receive an email shortly with your order details.
                       </p>
-                      <hr className="short" />
-                      <p>Check out the contact us page to find out how to get in contact if you need any help.</p>
                   </div>
               </div>
           </div>

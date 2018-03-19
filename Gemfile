@@ -9,21 +9,22 @@ gem 'bootstrap-sass'
 gem 'coffee-rails', '~> 4.2'
 gem 'fast_jsonapi'
 gem 'font-awesome-rails'
-gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
-gem 'puma', '~> 3.7'
+gem 'jbuilder', '~> 2.5'
+gem 'pg'
+gem 'puma'
 gem 'rails', '~> 5.1.4'
 gem 'react-rails'
-gem 'sqlite3'
 gem 'sass-rails', '~> 5.0'
 gem 'slim-rails'
 gem 'turbolinks', '~> 5'
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
 gem 'webpacker'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
+  gem 'rspec-rails'
   gem 'selenium-webdriver'
 end
 
@@ -33,5 +34,3 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
 end
-
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
