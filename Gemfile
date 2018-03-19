@@ -7,6 +7,7 @@ end
 
 gem 'bootstrap-sass'
 gem 'coffee-rails', '~> 4.2'
+gem 'dotenv'
 gem 'fast_jsonapi'
 gem 'font-awesome-rails'
 gem 'jquery-rails'

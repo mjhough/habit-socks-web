@@ -48,7 +48,3 @@ bower.json
 yarn-debug.log*
 yarn-error.log*
 .yarn-integrity
-
-# Ignore javascript constant files
-app/javascript/constants/stripe.js
-backend/constants/stripe.js
