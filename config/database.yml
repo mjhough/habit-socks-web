@@ -1,10 +1,10 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  username: <%= ENV.fetch('RDS_USERNAME') { 'postgres' } %>
+  username: <%= ENV.fetch('PG_USERNAME') { 'postgres' } %>
   password:
   pool: <%= ENV.fetch('RAILS_MAX_THREADS') { 5 } %>
-  host: <%= ENV.fetch('RDS_HOSTNAME') { 'localhost' } %>
+  host: <%= ENV.fetch('PG_HOSTNAME') { 'localhost' } %>
 
 development:
   <<: *default
@@ -16,6 +16,6 @@ test:
 
 production:
   <<: *default
-  database: <%= ENV['RDS_DB_NAME'] %>
-  password: <%= ENV['RDS_PASSWORD'] %>
-  port: <%= ENV['RDS_PORT'] %>
+  database: <%= ENV['PG_NAME'] %>
+  password: <%= ENV['PG_PASSWORD'] %>
+  port: <%= ENV['PG_PORT'] %>
