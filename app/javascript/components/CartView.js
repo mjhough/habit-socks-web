@@ -109,7 +109,7 @@ export default class ViewCart extends React.Component {
             <div className="totals-value" id="cart-total">{total}</div>
           </div>
           <div className="totals-item totals-item-total checkout--container">
-            <Checkout name='Habit Socks' description="Great education for all children" amount={parseFloat(total)} />
+            <Checkout name='Habit Socks' description="Great education for all children" amount={parseFloat(total)} quantity={quantity} productSku={this.props.productSku} />
           </div>
         </div>
       </div>

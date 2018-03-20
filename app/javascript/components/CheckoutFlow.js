@@ -35,7 +35,7 @@ class CheckoutFlow extends React.Component {
       const shipTo = this.state.checkoutData.data.success.source.address_line1 + ', ' + this.state.checkoutData.data.success.source.address_city;
       return <CheckoutSuccess successImage={this.props.successImage} customerName={customerName} paidAmount={paidAmount} shipTo={shipTo} />
     } 
-    return <CartView />;
+    return <CartView productSku='sku_CWxpCQ9W50WpNR' />;
   }
 }
 
