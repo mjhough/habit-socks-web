@@ -1,5 +1,3 @@
-const PAYMENT_SERVER_URL = process.env.NODE_ENV === 'production'
-  ? process.env.BACKEND_URL
-  : 'http://localhost:8080';
+const PAYMENT_SERVER_URL = process.env.BACKEND_URL;
 
 export default PAYMENT_SERVER_URL;
