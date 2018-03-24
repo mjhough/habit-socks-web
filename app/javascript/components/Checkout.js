@@ -1,6 +1,6 @@
 import React from 'react';
 import postal from 'postal';
-import axios from 'axios';
+import $ from 'jquery';
 import StripeCheckout from './StripeCheckout';
 
 import STRIPE_PUBLISHABLE from '../constants/stripe';
@@ -41,19 +41,16 @@ const onToken = (description, quantity, productSku) => token => {
       type: 'sku',
       parent: productSku,
       quantity: quantity
-    }]
-  axios.post(PAYMENT_SERVER_URL,
-    {
-      pay: { source: token.id },
-      order: {
-        email: token.email,
-        shipping: shipping,
-        items: items,
-        currency: CURRENCY
-      }
-    })
-    .then(successPayment)
-    .catch(errorPayment);
+    }];
+  $.post(PAYMENT_SERVER_URL, {
+    pay: { source: token.id },
+    order: {
+      email: token.email,
+      shipping: shipping,
+      items: items,
+      currency: CURRENCY
+    }
+  }, successPayment).fail(errorPayment);
 }
 
 const Checkout = ({ name, description, amount, quantity, productSku }) =>

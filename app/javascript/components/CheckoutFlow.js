@@ -21,8 +21,7 @@ class CheckoutFlow extends React.Component {
   }
 
   checkoutSuccess(data, env) {
-    const res = JSON.parse(data.data);
-    const checkoutData = res.data.success;
+    const checkoutData = JSON.parse(data.data).success;
     if (checkoutData.status === 'paid') this.setState({
       success: true,
       checkoutData: checkoutData
