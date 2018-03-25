@@ -323,3 +323,11 @@ body {
 .heavy-text {
   font-weight: 600;
 }
+
+.article__body {
+  margin: 7.5% 0;
+}
+
+.weight-550 {
+  font-weight: 550;
+}
