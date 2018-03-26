@@ -9,4 +9,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (miniCartNode && window.location.href.indexOf('cart') < 0) ReactDOM.render(<MiniCart />, miniCartNode);
   if (addToCartNode) ReactDOM.render(<AddToCart />, addToCartNode);
-})
+});

@@ -6,4 +6,4 @@ document.addEventListener('DOMContentLoaded', () => {
   const node = document.getElementById('checkout_flow_render')
 
   ReactDOM.render(<CheckoutFlow />, node);
-})
+});

@@ -53,20 +53,34 @@ const onToken = (description, quantity, productSku) => token => {
   }, successPayment).fail(errorPayment);
 }
 
-const Checkout = ({ name, description, amount, quantity, productSku }) =>
-  <StripeCheckout 
-    className='btn btn--primary type-uppercase checkout--button'
-    buttonTextClassName='btn__text'
-    name={name}
-    description={description}
-    amount={fromAUDToCent(amount)}
-    token={onToken(description, quantity, productSku)}
-    currency={CURRENCY}
-    stripeKey={STRIPE_PUBLISHABLE}
-    allowRememberMe={false}
-    label='Checkout'
-    shippingAddress={false}
-    billingAddress={true}
-  />
+class Checkout extends React.Component {
+  static defaultProps = {
+    buttonClassName: 'btn btn--primary type-uppercase checkout--button',
+    buttonTextClassName: 'btn__text',
+    label: 'Checkout'
+  }
+  render() {
+    const { name, description, amount, quantity, productSku, buttonClassName, buttonTextClassName, label } = this.props;
+    return (
+      <StripeCheckout 
+        className={buttonClassName}
+        buttonTextClassName={buttonTextClassName}
+        name={name}
+        description={description}
+        amount={fromAUDToCent(amount)}
+        token={onToken(description, quantity, productSku)}
+        currency={CURRENCY}
+        stripeKey={STRIPE_PUBLISHABLE}
+        allowRememberMe={false}
+        label={label}
+        shippingAddress={false}
+        billingAddress={true}
+      />
+    )
+  }
+}
+
+
+
 
 export default Checkout;
