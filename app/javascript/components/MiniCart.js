@@ -25,7 +25,6 @@ class CartDropdown extends React.Component {
   }
 
   handleClick() {
-    // TODO: Implement dropdown cart
     window.location.href = '/cart';
   }
 
