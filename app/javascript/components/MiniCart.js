@@ -1,27 +1,11 @@
 import React from 'react';
-import postal from 'postal';
 
-class CartDropdown extends React.Component {
+class MiniCart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      visible: false,
       quantity: localStorage.getItem('cart') || 0
     }
-  }
-
-  componentDidMount() {
-    postal.subscribe({
-      channel: 'carts',
-      topic: 'item.add',
-      callback: this.handleStorageChange.bind(this)
-    });
-  }
-
-  handleStorageChange(data, env) {
-    this.setState({
-      quantity: data.quantity,
-    });
   }
 
   handleClick() {
@@ -39,7 +23,4 @@ class CartDropdown extends React.Component {
 }
 
 
-export default CartDropdown;
-
-
-
+export default MiniCart;

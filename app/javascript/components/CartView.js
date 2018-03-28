@@ -1,5 +1,4 @@
 import React from 'react';
-import postal from 'postal';
 import Checkout from './Checkout';
 
 export default class ViewCart extends React.Component {
@@ -29,13 +28,6 @@ export default class ViewCart extends React.Component {
   removeItem() {
     localStorage.removeItem('cart');
     this.setState({quantity: 0});
-    postal.publish({
-      channel: 'carts',
-      topic: 'item.add',
-      data: {
-        quantity: 0
-      }
-    });
   }
 
   changeQuantity(ev) {
@@ -43,13 +35,6 @@ export default class ViewCart extends React.Component {
     if (newQuantity < 1 || newQuantity > 99 || !newQuantity) return;
     localStorage.setItem('cart', newQuantity);
     this.setState({quantity: newQuantity});
-    postal.publish({
-      channel: 'carts',
-      topic: 'item.add',
-      data: {
-        quantity: newQuantity
-      }
-    });
   }
 
   render() {

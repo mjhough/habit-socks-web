@@ -1,7 +1,7 @@
 import React from 'react';
 
 const AddToCart = () => {
-  const handleClick = env => {
+  const handleClick = () => {
     const cart = parseInt(localStorage.getItem('cart'));
     const newCart = cart + 1;
     cart ? localStorage.setItem('cart', newCart) : localStorage.setItem('cart', 1);
