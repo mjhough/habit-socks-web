@@ -1,6 +1,9 @@
 import React from 'react';
 import Checkout from './Checkout';
 
+import 'isomorphic-fetch';
+import 'es6-promise/auto';
+
 export default class ViewCart extends React.Component {
   constructor(props) {
     super(props);
