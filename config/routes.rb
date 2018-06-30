@@ -10,4 +10,7 @@ Rails.application.routes.draw do
   post '/api/products/:id/reviews', to: 'reviews#create'
 
   get '/cart', to: 'carts#index'
+
+  post 'charges/new', to: 'charges#new'
+  post 'charges', to: 'charges#create'
 end

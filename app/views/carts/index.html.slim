@@ -1,2 +1,3 @@
-#checkout_flow_render data={success_image: asset_path('school-children-home.jpg')}
-  = javascript_pack_tag 'checkout_flow_render'
+= form_tag(charges_new_path)
+  #checkout_flow_render data={success_image: asset_path('school-children-home.jpg')}
+    = javascript_pack_tag 'checkout_flow_render'

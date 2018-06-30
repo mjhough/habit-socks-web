@@ -1,6 +1,5 @@
 import React from 'react';
 import Checkout from './Checkout';
-
 import 'isomorphic-fetch';
 import 'es6-promise/auto';
 
@@ -19,7 +18,7 @@ export default class ViewCart extends React.Component {
             sockInfo: {
               name: sockInfo.name,
               imageURL: sockInfo.image_url,
-              price: sockInfo.price.toFixed(2),
+              price: (sockInfo.price / 100).toFixed(2),
               description: sockInfo.description,
               shippingInfo: sockInfo.shipping_info
             }
@@ -52,6 +51,7 @@ export default class ViewCart extends React.Component {
     )
 
     const total = (sockInfo.price * quantity).toFixed(2);
+
     return (
       <div className="view--cart">
         <div className="column-labels">
@@ -73,7 +73,7 @@ export default class ViewCart extends React.Component {
           </div>
           <div className="product-price">{sockInfo.price}</div>
           <div className="product-quantity">
-            <input type='number' value={quantity} onChange={this.changeQuantity.bind(this)} min="1" />
+            <input name='quantity' type='number' value={quantity} onChange={this.changeQuantity.bind(this)} min="1" />
           </div>
           <div className="product-removal">
             <a className='btn btn--primary type-uppercase' onClick={this.removeItem.bind(this)}>
@@ -96,8 +96,10 @@ export default class ViewCart extends React.Component {
             <label>Grand Total</label>
             <div className="totals-value" id="cart-total">{total}</div>
           </div>
-          <div className="totals-item totals-item-total checkout--container">
-            <Checkout name='Habit Socks' description="Great education for all children" amount={parseFloat(total)} quantity={quantity} productSku={this.props.productSku} />
+          <div className="totals-item totals-item-total">
+            <div className="checkout--container">
+              <input type='submit' className='btn btn--primary type-uppercase' />
+            </div>
           </div>
         </div>
       </div>

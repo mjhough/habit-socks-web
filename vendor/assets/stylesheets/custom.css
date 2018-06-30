@@ -311,13 +311,12 @@ body {
   padding: 15%;
 }
 
-.checkout--button {
-  float: right;
-}
-
 .checkout--container {
+  float: right;
+  width: 15%;
   padding-top: 3%;
   padding-right: 1%;
+  margin-right: 8%;
 }
 
 .heavy-text {
