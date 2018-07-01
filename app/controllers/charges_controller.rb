@@ -5,7 +5,6 @@ class ChargesController < ApplicationController
   end
 
   def create
-    byebug
     customer = Stripe::Customer.create(
       email: params[:email],
       source: params[:stripeToken]
