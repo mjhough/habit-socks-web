@@ -1,46 +1,72 @@
-= form_tag charges_path do
-  = label_tag "Full Name", nil, required: true
-  = text_field_tag :full_name, nil, class: "co-field", id: 'cf1'
 
-  = label_tag "Email", nil, required: true
-  = text_field_tag :email, nil, class: "co-field", id: 'cf2'
 
-  = label_tag "Address (incl. suburb)", nil, required: true
-  = text_field_tag :address, nil, class: "co-field", id: 'cf3'
 
-  = label_tag "State/Territory", nil, required: true
-  = text_field_tag :state, nil, class: "co-field", id: 'cf4'
 
-  = label_tag "Post Code", nil, required: true
-  = text_field_tag :zip, nil, class: "co-field", id: 'cf5'
+section
+  .container
+    .row
+      .col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-2
+        .row
+          .boxed.boxed--border
+            = form_tag charges_path do
+              = label_tag "Full Name", nil, required: true
+              = text_field_tag :full_name, nil, class: "co-field", id: 'cf1'
 
-  script.stripe-button[src="https://checkout.stripe.com/checkout.js" data-key="#{Rails.configuration.stripe[:publishable_key]}" data-description="Purchasing #{@quantity} Habit Socks" data-amount="#{@price}" data-locale="auto"]
+              = label_tag "Email", nil, required: true
+              = text_field_tag :email, nil, class: "co-field", id: 'cf2'
+
+              = label_tag "Address (incl. suburb)", nil, required: true
+              = text_field_tag :address, nil, class: "co-field", id: 'cf3'
+
+              = label_tag "State/Territory", nil, required: true
+              = text_field_tag :state, nil, class: "co-field", id: 'cf4'
+
+              = label_tag "Post Code", nil, required: true
+              = text_field_tag :zip, nil, class: "co-field", id: 'cf5'
+              .col-sm-12.boxed
+                script.stripe-button[src="https://checkout.stripe.com/checkout.js" data-key="#{Rails.configuration.stripe[:publishable_key]}" data-description="Purchasing #{@quantity} Habit Socks" data-amount="#{@price}" data-locale="auto"]
+
+
+
 
 javascript:
   const stripeButton = document.getElementsByClassName('stripe-button-el')[0];
-  stripeButton.disabled = true;
-
   const fieldValues = {};
 
   const enableStripeButton = () => {
     stripeButton.disabled = false;
   }
 
+  const disableStripeButton = () => {
+    stripeButton.disabled = true;
+  }
+
   const checkFields = () => {
     for (const key in fieldValues) {
-      if (Object.keys(fieldValues).length !== 5) return false;
+      if (Object.keys(fieldValues).length !== 5) {
+        disableStripeButton();
+        return false;
+      }
     }
     enableStripeButton();
   }
 
   const storeField = ev => {
     const field = ev.target;
-    if (/\S/.test(field.value)) { fieldValues[field.id] = field.value } else { return };
+    if (/\S/.test(field.value)) { fieldValues[field.id] = field.value } else { 
+      delete fieldValues[field.id];
+    };
 
     checkFields();
   }
 
-  const fields = document.getElementsByClassName('co-field')
-  Array.from(fields).forEach(field => {
-    field.addEventListener('input', storeField);
+  document.addEventListener('DOMContentLoaded', event => {
+    disableStripeButton();
+
+    const fields = document.getElementsByClassName('co-field')
+
+    Array.from(fields).forEach(field => {
+      field.addEventListener('input', storeField);
+    });
   });
+

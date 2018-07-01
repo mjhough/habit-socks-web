@@ -334,3 +334,23 @@ body {
 .top-margin-10 {
   margin-top: 10px;
 }
+
+button.stripe-button-el,
+button.stripe-button-el span,
+button.stripe-button-el > span {
+  color: #fff;
+  background-color: #f18f01 !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  text-shadow: none;
+}
+
+button.stripe-button-el:disabled,
+button.stripe-button-el:disabled > span {
+  color: #fff;
+  background-image: none;
+  box-shadow: none;
+  text-shadow: none;
+  cursor: not-allowed;
+}
+
