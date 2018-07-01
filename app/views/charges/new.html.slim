@@ -1,14 +1,46 @@
-= form_tag charges_path, id: "payment-form"
-  = text_field :email, label: "Email"
-  / = f.password_field :password, label: "Password"
-  = text_field :name , label: "Full Name"
-  fieldset.credit_card
-    .payment-errors
-      label.control-label.col-sm-2(for="credit-card-number") Credit Card Number
-        input.form-control#credit-card-number(type="text" data-stripe="number")
-      label.control-label.col-sm-2(for="security-code") Security Code
-        input.form-control#security-code(type="text" data-stripe="cvc")
-      label.control-label.col-sm-2 Expiration
-        = select_month(Date.today, {add_month_numbers: true},  class: 'form-control', data: {stripe: "exp-month"})
-        = select_year(Date.today.year, {start_year: Date.today.year, end_year: Date.today.year + 4}, class: 'form-control', data: {stripe: "exp-year"})
-        input(type="submit" value="Sign Up")
+= form_tag charges_path do
+  = label_tag "Full Name", nil, required: true
+  = text_field_tag :full_name, nil, class: "co-field", id: 'cf1'
+
+  = label_tag "Email", nil, required: true
+  = text_field_tag :email, nil, class: "co-field", id: 'cf2'
+
+  = label_tag "Address (incl. suburb)", nil, required: true
+  = text_field_tag :address, nil, class: "co-field", id: 'cf3'
+
+  = label_tag "State/Territory", nil, required: true
+  = text_field_tag :state, nil, class: "co-field", id: 'cf4'
+
+  = label_tag "Post Code", nil, required: true
+  = text_field_tag :zip, nil, class: "co-field", id: 'cf5'
+
+  script.stripe-button[src="https://checkout.stripe.com/checkout.js" data-key="#{Rails.configuration.stripe[:publishable_key]}" data-description="Purchasing #{@quantity} Habit Socks" data-amount="#{@price}" data-locale="auto"]
+
+javascript:
+  const stripeButton = document.getElementsByClassName('stripe-button-el')[0];
+  stripeButton.disabled = true;
+
+  const fieldValues = {};
+
+  const enableStripeButton = () => {
+    stripeButton.disabled = false;
+  }
+
+  const checkFields = () => {
+    for (const key in fieldValues) {
+      if (Object.keys(fieldValues).length !== 5) return false;
+    }
+    enableStripeButton();
+  }
+
+  const storeField = ev => {
+    const field = ev.target;
+    if (/\S/.test(field.value)) { fieldValues[field.id] = field.value } else { return };
+
+    checkFields();
+  }
+
+  const fields = document.getElementsByClassName('co-field')
+  Array.from(fields).forEach(field => {
+    field.addEventListener('input', storeField);
+  });

@@ -2,12 +2,12 @@ class ChargesController < ApplicationController
   def new
     @quantity = params[:quantity].to_i
     @price = 1600 * @quantity # cents
-    byebug
   end
 
   def create
+    byebug
     customer = Stripe::Customer.create(
-      email: params[:stripeEmail],
+      email: params[:email],
       source: params[:stripeToken]
     )
 
@@ -15,7 +15,8 @@ class ChargesController < ApplicationController
       customer: customer.id,
       amount: @amount,
       description: 'Habit Socks customer',
-      currency: 'aud'
+      currency: 'aud',
+      source: params[:stripeToken]
     )
 
   rescue Stripe::CardError => e
