@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180629072823) do
+ActiveRecord::Schema.define(version: 20180701072820) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(version: 20180629072823) do
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
+  create_table "product_orders", force: :cascade do |t|
+    t.bigint "product_id"
+    t.bigint "order_id"
+    t.index ["order_id"], name: "index_product_orders_on_order_id"
+    t.index ["product_id"], name: "index_product_orders_on_product_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "image_url"
     t.string "name"
@@ -30,7 +37,9 @@ ActiveRecord::Schema.define(version: 20180629072823) do
     t.integer "inventory", default: 0
     t.integer "price"
     t.bigint "order_id"
+    t.bigint "user_id"
     t.index ["order_id"], name: "index_products_on_order_id"
+    t.index ["user_id"], name: "index_products_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
