@@ -5,23 +5,26 @@ section
         .row
           .boxed.boxed--border
             = form_tag charges_path do
-              = label_tag "Full Name", nil, required: true
-              = text_field_tag :full_name, nil, class: "co-field", id: 'cf1'
+              = fields_for :user do |ff|
+                = label_tag "cf1", "Full Name", required: true
+                = ff.text_field :name, class: "co-field", id: 'cf1'
 
-              = label_tag "Address (incl. suburb)", nil, required: true
-              = text_field_tag :address, nil, class: "co-field", id: 'cf2'
+                = label_tag "cf2", "Address (incl. suburb)", required: true
+                = ff.text_field :address, class: "co-field", id: 'cf2'
 
-              = label_tag "State/Territory", nil, required: true
-              = text_field_tag :state, nil, class: "co-field", id: 'cf3'
+                = label_tag "cf3", "State/Territory", required: true
+                = ff.text_field :state, class: "co-field", id: 'cf3'
 
-              = label_tag "Country", nil, required: true
-              = text_field_tag :country, nil, class: "co-field", id: 'cf4'
+                = label_tag "cf4", "Country", required: true
+                = ff.text_field :country, class: "co-field", id: 'cf4'
 
-              = label_tag "Post Code", nil, required: true
-              = text_field_tag :zip, nil, class: "co-field", id: 'cf5'
+                = label_tag "cf5", "Post Code", required: true
+                = ff.text_field :zip, class: "co-field", id: 'cf5'
 
-              = label_tag "Phone Number", nil, required: true
-              = text_field_tag :phone_number, nil, class: "co-field", id: 'cf6'
+                = label_tag "cf6", "Phone Number", required: true
+                = ff.text_field :phone_number, class: "co-field", id: 'cf6'
+
+              = hidden_field_tag "quantity", @quantity
 
               .col-sm-12.boxed
                 script.stripe-button[src="https://checkout.stripe.com/checkout.js" data-key="#{Rails.configuration.stripe[:publishable_key]}" data-description="Purchasing #{@quantity} Habit Socks" data-amount="#{@price}" data-locale="auto" data-email=""]
