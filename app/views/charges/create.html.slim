@@ -1,2 +1,23 @@
-h2
-  | Thanks for your purchase!
+section[classname="text-center"]
+  div[classname="container"]
+    div[classname="row"]
+      div[classname="col-sm-10 col-md-8"]
+        h2
+          = "Thanks for your order #{@user.name}!"
+        p[classname="lead"]
+          strong
+            | Order Details:
+          br
+          span[classname="heavy-text"]
+            | Amount:
+            =  "#{@total / 100}.00"
+          br
+          span[classname="heavy-text"]
+            | Shipping to:
+            =  "#{@user.address}"
+          br
+          br
+          |  You will receive an email shortly with the details.
+
+javascript:
+  localStorage.cart = 0; 

@@ -9,11 +9,11 @@ class ChargesController < ApplicationController
     @quantity = params[:quantity].to_i
     @total = PRICE * @quantity
 
-    user, customer = find_or_create_customer
-    order = user.orders.create(quantity: @quantity, total: @total)
+    @user, customer = find_or_create_customer
+    order = @user.orders.create(quantity: @quantity, total: @total)
 
     Stripe::Charge.create(
-      customer: user.stripe_id,
+      customer: @user.stripe_id,
       amount: @total,
       currency: 'aud',
       description: 'Habit Socks',
