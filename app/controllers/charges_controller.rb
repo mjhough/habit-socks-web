@@ -19,7 +19,8 @@ class ChargesController < ApplicationController
       description: 'Habit Socks',
       source: customer.default_source,
       statement_descriptor: "HABIT SOCKS - #{@quantity} socks",
-      metadata: {order_id: order.id}
+      metadata: {order_id: order.id},
+      receipt_email: @user.email
     )
 
   rescue Stripe::CardError => e
