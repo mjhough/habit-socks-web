@@ -31,7 +31,7 @@ class ChargesController < ApplicationController
   private
 
   def find_or_create_customer
-    if user = User.find_by(email: user_params[:stripeEmail])
+    if user_params[:stripeEmail] && (user = User.find_by(email: user_params[:stripeEmail]))
       user.update(user_params)
       user.save
       customer = Stripe::Customer.retrieve(user.stripe_id)
