@@ -8,7 +8,8 @@ class ProductsController < ApplicationController
     product = Product.find(params[:id])
     options = {}
     options[:include] = [:reviews]
-    render json: ProductSerializer.new([product], options).serialized_json, status: 200
+    render json: ProductSerializer.new([product],
+                                       options).serialized_json, status: 200
   end
 
   def index
@@ -18,5 +19,4 @@ class ProductsController < ApplicationController
   def show
     @product_id = params[:id]
   end
-
 end

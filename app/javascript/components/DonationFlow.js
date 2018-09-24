@@ -50,7 +50,7 @@ export default class DonationFlow extends React.Component {
             <div className='col-sm-6 col-md-5'>
               <div className='switchable__text'>
                 <h2>You are an awesome person!</h2>
-                <p className='lead'>By donating you are helping provide children around Australia with the tools they need to become future world changers. Thank you!</p>
+                <p className='lead'>By donating you are helping provide children around Australia the tools they need to become future world changers. Thank you!</p>
               </div>
             </div>
             <div className='col-sm-6'>

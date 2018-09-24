@@ -21,6 +21,7 @@ export default class ViewCart extends React.Component {
               price: (sockInfo.price / 100).toFixed(2),
               description: sockInfo.description,
               shippingInfo: sockInfo.shipping_info
+
             }
           })
         });
@@ -98,7 +99,7 @@ export default class ViewCart extends React.Component {
           </div>
           <div className="totals-item totals-item-total">
             <div className="checkout--container">
-              <input type='submit' className='btn btn--primary type-uppercase' />
+              <input type='submit' className='btn btn--primary type-uppercase' value='Continue to Checkout' />
             </div>
           </div>
         </div>

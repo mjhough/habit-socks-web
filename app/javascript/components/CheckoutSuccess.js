@@ -5,12 +5,12 @@ const CheckoutSuccess = ({ customerName, paidAmount, shipTo }) => {
     <section className="text-center">
         <div className="container">
             <div className="row">
-                <div className="col-sm-10 col-md-8">
+                <div className="col-sm-10">
                     <h2>Thanks for your order {customerName}!</h2>
                     <p className="lead"><strong>Order Details:</strong><br />
-                      <span className='heavy-text'>Amount:</span> ${paidAmount}
+                      <span className='heavy-text'>Amount:</span> ${'$' + paidAmount}
                       <br />
-                      <span className='heavy-text'>Shipping to:</span> {shipTo}
+                      <span className='heavy-text'>Shipping to: </span> {shipTo}
                       <br /><br />
                       You will receive an email shortly with your order details.
                     </p>

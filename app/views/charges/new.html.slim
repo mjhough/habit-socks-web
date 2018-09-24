@@ -45,11 +45,9 @@ javascript:
   }
 
   const checkFields = () => {
-    for (const key in fieldValues) {
-      if (Object.keys(fieldValues).length !== 6) {
-        disableStripeButton();
-        return false;
-      }
+    if (Object.keys(fieldValues).length !== 6) {
+      disableStripeButton();
+      return false;
     }
     enableStripeButton();
   }

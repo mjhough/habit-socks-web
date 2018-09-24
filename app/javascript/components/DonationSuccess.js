@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CheckoutSuccess = ({ customerName }) {
+const CheckoutSuccess = ({ customerName }) => {
   return (
     <section className="text-center">
         <div className="container">

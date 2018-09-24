@@ -1,7 +1,7 @@
-section[classname="text-center"]
-  div[classname="container"]
-    div[classname="row"]
-      div[classname="col-sm-10 col-md-8"]
+section.cover.height-100.text-center
+  .container.pos-vertical-center
+    .row[style="margin-top:-10%;"]
+      .col-sm-6.col-md-4
         h2
           = "Thanks for your order #{@user.name}!"
         p[classname="lead"]
@@ -10,14 +10,14 @@ section[classname="text-center"]
           br
           span[classname="heavy-text"]
             | Amount:
-            =  "#{@total / 100}.00"
+            =  " $#{@total / 100}.00"
           br
           span[classname="heavy-text"]
             | Shipping to:
-            =  "#{@user.address}"
+            =  " #{@user.address}"
           br
           br
-          |  You will receive an email shortly with the details.
+          |  You will receive an email within 24 hours with the details.
 
 javascript:
   localStorage.cart = 0; 

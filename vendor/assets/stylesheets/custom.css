@@ -354,3 +354,6 @@ button.stripe-button-el:disabled > span {
   cursor: not-allowed;
 }
 
+.home-product-image {
+  width: 83%;
+}
