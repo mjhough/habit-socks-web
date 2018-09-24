@@ -31,7 +31,6 @@ class ChargesController < ApplicationController
   private
 
   def find_or_create_customer
-    raise ArgumentError if missing_params
     if user = User.find_by(email: user_params[:email])
       user.update(user_params)
       user.save
